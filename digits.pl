@@ -5,7 +5,7 @@ solve_digits(Nums, Result) :-
   format('~w~25| = ~w~n', [Expr, Result]).
 
 expr(Available, Cur, Result, Expr) :-
-  ( EvalCur is Cur, EvalCur = Result ->
+  ( EvalCur is Cur, EvalCur =:= Result ->
     Expr = Cur
   ; % otherwise, take two from available
     member(X, Available),
@@ -26,4 +26,3 @@ transform(Expr1, Expr2, NewExpr) :-
   EvalNewNum is NewExpr,
   EvalNewNum > 0,
   integer(EvalNewNum).
-
